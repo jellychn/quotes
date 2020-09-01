@@ -1,0 +1,53 @@
+.App {
+  background-color: #F8F9FB;
+  width: 100vw;
+  height: 100vh;
+
+  .quote-container {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+
+    .time {
+      font-weight: bold;
+      font-family: 'Righteous', cursive;
+      color: lightgray;
+    }
+
+    .date {
+      font-weight: bold;
+      font-family: 'Righteous', cursive;
+      color: darkgray;
+    }
+
+    .quote {
+      font-style: italic;
+      font-family: 'Lobster', cursive;
+      font-size: 20px;
+      color: #1C1B20;
+    }
+
+    .content {
+      font-style: italic;
+      font-family: 'Lobster', cursive;
+      font-size: 15px;
+      color: lightgray;
+    }
+  }
+
+  .generator {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    textarea {
+      padding: 20px;
+      border-radius: 10px;
+      border: none;
+    }
+  }
+}
+
