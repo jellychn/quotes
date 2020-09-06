@@ -9,7 +9,10 @@ class Quote extends React.Component {
         month: 0,
         day: 0,
         quote: '',
-        type: ''
+        chinese: '',
+        type: '',
+        traditionalToggle: false,
+        traditional: ''
     }
 
     componentDidMount() {
@@ -56,11 +59,15 @@ class Quote extends React.Component {
         const minutes = d.getMinutes();
         const seconds = d.getSeconds();
         let type = '';
+        let chinese = '';
         let quote = '';
+        let traditional = '';
         quotes.map((q) => {
             if (q.month === month && q.day === day) {
                 quote = q.quote;
                 type = q.type;
+                chinese = q.chinese;
+                traditional = q.traditional;
             }
         });
 
@@ -72,8 +79,32 @@ class Quote extends React.Component {
             month: month,
             day: day,
             quote: quote,
-            type: type
+            chinese: chinese,
+            type: type,
+            traditional: traditional
         });
+    };
+
+    traditionalToggle = () => {
+        this.setState({traditionalToggle: !this.state.traditionalToggle});
+    };
+
+    indicator = () => {
+        if (this.state.traditionalToggle) {
+            return (
+                <React.Fragment>
+                    <p className='date'>TRIDITIONAL</p>
+                    <p className='triditional'>{this.state.traditional}</p>
+                </React.Fragment>
+            )
+        } else {
+            return (
+                <React.Fragment>
+                    <p className='date'>SIMPLIFIED</p>
+                    <p className='chinese'>{this.state.chinese}</p>
+                </React.Fragment>
+            )
+        }
     };
 
     render () {
@@ -82,8 +113,15 @@ class Quote extends React.Component {
                 <p className='time'>{`${this.state.hour} : ${this.state.minute} : ${this.state.second}`}</p>
                 <p className='date'>{`${this.state.month}. ${this.state.day} ~ ${this.state.type}`}</p>
                 <p className='quote'>{this.state.quote}</p>
+                <label class="switch">
+                    <input type="checkbox" onClick={this.traditionalToggle}/>
+                    <span class="slider round"></span>
+                </label>
+                {this.indicator()}
+                <p className='chinese'>星雲</p>
                 <p className='content'>
-                ~ By Master Hsing Yun
+                366 Days With Wisdom,<br/>
+                By Master Hsing Yun
                 </p>
             </div>
         )
