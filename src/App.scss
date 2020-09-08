@@ -1,13 +1,8 @@
 .App {
   background-color: #F8F9FB;
-  width: 100vw;
-  height: 100vh;
 
   .quote-container {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    margin: 40px auto;
     width: 300px;
 
     .time {
@@ -42,8 +37,6 @@
     }
 
     .content {
-      font-style: italic;
-      // font-family: 'Lobster', cursive;
       font-family: 'Righteous', cursive;
       font-size: 15px;
       color: darkgray;
