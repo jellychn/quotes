@@ -1,8 +1,13 @@
 .App {
   background-color: #F8F9FB;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-content: center;
+  min-height: 100vh;
 
   .quote-container {
-    margin: 40px auto;
+    margin: auto;
     width: 300px;
 
     .time {
